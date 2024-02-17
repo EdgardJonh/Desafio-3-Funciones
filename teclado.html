@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teclado</title>
+    <style>
+        #key{
+            width: 200px;
+            height: 200px;
+            border: solid 2px black;
+        }
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <p>Puedes cambiar los colores del cuadro tecleando las letras: A ,S ,D.</p>
+        <div id="key"></div>
+        <p>Para agregar nuevos cuadros teclea las letras: Q, W, E.</p>
+    </div>
+   
+    <script>
+        // Selecciona el div del html lo almacena en una variable global
+        let keyss = document.querySelector('#key')
+        let contenedor = document.querySelector('.contenedor')
+        function pintarDiv(color) {
+         keyss.style.backgroundColor = color
+        }
+        function crearDiv(colors) {
+            let newDivs = document.createElement('div')
+            newDivs.style.width = '200px'
+            newDivs.style.height= '200px'
+            newDivs.style.backgroundColor= colors
+            contenedor.appendChild(newDivs)
+        }
+        document.addEventListener('keydown',(e)=>{
+            // let laKey = e.key
+            if (e.key == 'a') {
+                pintarDiv('pink')
+            }else if (e.key == 's') {
+                pintarDiv('orange')
+            } else if(e.key =='d'){
+                pintarDiv('skyblue')
+            }else if (e.key == 'w'){
+                crearDiv('gray')
+            }else if (e.key == 'q'){
+                crearDiv('purple')
+            }else if (e.key == 'e'){
+                crearDiv('brown')
+            }
+        })
+    </script>
+</body>
+</html>
